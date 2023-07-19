@@ -10,7 +10,7 @@ from flask import Flask, jsonify
 load_dotenv()
 PORT = os.getenv("PORT")
 SECRET_KEY = os.getenv("SECRET_KEY")
-# OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 MONGO_URL = os.getenv("MONGO_URL")
 
 
@@ -18,7 +18,7 @@ MONGO_URL = os.getenv("MONGO_URL")
 app = Flask(__name__)
 CORS(app, origins='*')
 app.config['SECRET_KEY'] = SECRET_KEY
-# app.config['OPENAI_API_KEY'] = OPENAI_API_KEY
+app.config['OPENAI_API_KEY'] = OPENAI_API_KEY
 app.config['MONGO_URI'] = MONGO_URL
 app.config['PORT'] = PORT
 
