@@ -1,0 +1,35 @@
+/* Add this CSS to your existing styles */
+.hamburger {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.hamburger__top-bun,
+.hamburger__bottom-bun {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #000;
+}
+
+.hamburger__top-bun {
+  top: 0;
+}
+
+.hamburger__bottom-bun {
+  bottom: 0;
+}
+
+.hamburger.active .hamburger__top-bun {
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.hamburger.active .hamburger__bottom-bun {
+  bottom: 50%;
+  transform: translateY(50%) rotate(-45deg);
+}
