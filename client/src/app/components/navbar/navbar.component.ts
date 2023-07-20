@@ -8,7 +8,4 @@ import { Component } from '@angular/core';
 export class NavbarComponent {
   navActive: boolean = false;
   constructor() {}
-  navToggle() {
-    this.navActive = !this.navActive;
-  }
 }
