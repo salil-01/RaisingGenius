@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify, current_app
-
+from auth.auth_decorator import authenticate_and_authorize
 chat_bp = Blueprint('/chat', __name__)
 
 
@@ -35,6 +35,7 @@ def get_parental_advice(chat_history, user_query):
 
 
 @chat_bp.route('/chat', methods=['POST'])
+@authenticate_and_authorize()
 def get_advice():
     return jsonify({"msg":"Chat Route"})
     # try:
