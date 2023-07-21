@@ -14,11 +14,7 @@
           <div
             class="w-full max-w-full px-3 mx-auto mt-0 text-center lg:flex-0 shrink-0 lg:w-5/12"
           >
-            <h1 class="mt-12 mb-2 text-white">Welcome!</h1>
-            <p class="text-white">
-              Use these awesome forms to login or create new account in your
-              project for free.
-            </p>
+            <h3 class="font-bold mt-12 mb-2 text-white text-xl">Welcome !</h3>
           </div>
         </div>
       </div>
@@ -164,6 +160,8 @@
                 <div class="mb-4">
                   <input
                     type="text"
+                    name="username"
+                    [(ngModel)]="formData.username"
                     class="text-sm focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow"
                     placeholder="Name"
                     aria-label="Name"
@@ -173,6 +171,8 @@
                 <div class="mb-4">
                   <input
                     type="email"
+                    name="email"
+                    [(ngModel)]="formData.email"
                     class="text-sm focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow"
                     placeholder="Email"
                     aria-label="Email"
@@ -182,6 +182,8 @@
                 <div class="mb-4">
                   <input
                     type="password"
+                    name="password"
+                    [(ngModel)]="formData.password"
                     class="text-sm focus:shadow-soft-primary-outline leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 px-3 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:bg-white focus:text-gray-700 focus:outline-none focus:transition-shadow"
                     placeholder="Password"
                     aria-label="Password"
@@ -189,13 +191,7 @@
                   />
                 </div>
                 <div class="min-h-6 pl-6.92 mb-0.5 block">
-                  <input
-                    id="terms"
-                    class="w-4.92 h-4.92 ease-soft -ml-6.92 rounded-1.4 checked:bg-gradient-to-tl checked:from-gray-900 checked:to-slate-800 after:text-xxs after:font-awesome after:duration-250 after:ease-soft-in-out duration-250 relative float-left mt-1 cursor-pointer appearance-none border border-solid border-slate-200 bg-white bg-contain bg-center bg-no-repeat align-top transition-all after:absolute after:flex after:h-full after:w-full after:items-center after:justify-center after:text-white after:opacity-0 after:transition-all after:content-['\f00c'] checked:border-0 checked:border-transparent checked:bg-transparent checked:after:opacity-100"
-                    type="checkbox"
-                    value=""
-                    checked
-                  />
+                  <input id="terms" type="checkbox" value="" checked />
                   <label
                     class="mb-2 ml-1 font-normal cursor-pointer select-none text-sm text-slate-700"
                     for="terms"
@@ -209,7 +205,8 @@
                 <div class="text-center">
                   <button
                     type="button"
-                    class="inline-block w-full px-6 py-3 mt-6 mb-2 font-bold text-center text-white uppercase align-middle transition-all bg-transparent border-0 rounded-lg cursor-pointer active:opacity-85 hover:scale-102 hover:shadow-soft-xs leading-pro text-xs ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 bg-gradient-to-tl from-gray-900 to-slate-800 hover:border-slate-700 hover:bg-slate-700 hover:text-white"
+                    (click)="handleSubmit()"
+                    class="inline-block w-full px-6 py-3 mt-6 mb-2 font-bold text-center text-white uppercase align-middle transition-all bg-transparent border-0 rounded-lg cursor-pointer active:opacity-85 hover:scale-102 hover:shadow-soft-xs leading-pro text-xs ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 bg-gradient-to-tl from-blue-600 to-cyan-400"
                   >
                     Sign up
                   </button>

@@ -26,9 +26,6 @@ app.config['PORT'] = PORT
 # mongodb connection
 mongo = PyMongo(app)
 
-# Import the routes after creating the app to avoid circular imports
-
-
 # Blueprints
 app.register_blueprint(chat_bp)
 app.register_blueprint(user_bp)

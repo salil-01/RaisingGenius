@@ -15,7 +15,7 @@ def register():
 
     existing_user = User.find_by_email(email)
     if existing_user:
-        return jsonify({'message': 'Email already exists'}), 409
+        return jsonify({'message': 'Email already exists'}), 404
 
     User.create(username, email, password, role)
 

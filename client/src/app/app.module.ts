@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './routing/app-routing.module';
+import { ToastrModule } from 'ngx-toastr';
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { SigninComponent } from './pages/signin/signin.component';
@@ -21,7 +23,20 @@ import { FormsModule } from '@angular/forms';
     FooterComponent,
     ChatComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-top-center',
+      progressBar: true,
+      closeButton: true,
+      tapToDismiss: true,
+      enableHtml: true,
+    }),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
