@@ -1,13 +1,11 @@
 from flask import Blueprint, request, jsonify, current_app
 
-# Initialize OpenAI API with your API key
-apiKey = current_app.config['OPENAI_API_KEY']
-
 chat_bp = Blueprint('/chat', __name__)
 
 
 def get_parental_advice(chat_history, user_query):
     try:
+        apiKey = current_app.config['OPENAI_API_KEY']
         # Create a list of messages with user queries and model responses for warm-up
         warmup_prompt = [
             {'role': 'system', 'content': 'Welcome to the Parental Advisor! How can I assist you today?'}
@@ -36,23 +34,24 @@ def get_parental_advice(chat_history, user_query):
         return str(e)
 
 
-@chat_bp.route('/', methods=['POST'])
+@chat_bp.route('/chat', methods=['POST'])
 def get_advice():
-    try:
-        data = request.json
-        user_query = data['query']
+    return jsonify({"msg":"Chat Route"})
+    # try:
+    #     data = request.json
+    #     user_query = data['query']
 
-        # Load or retrieve the chat history for the user (you can use a database for this)
-        # For simplicity, I'm using a list in memory here
-        chat_history = data.get('chat_history', [])
+    #     # Load or retrieve the chat history for the user (you can use a database for this)
+    #     # For simplicity, I'm using a list in memory here
+    #     chat_history = data.get('chat_history', [])
 
-        # Get the model's response
-        response = get_parental_advice(chat_history, user_query)
+    #     # Get the model's response
+    #     response = get_parental_advice(chat_history, user_query)
 
-        # Store the current user query and model response in the chat history
-        chat_history.append(user_query)
-        chat_history.append(response)
+    #     # Store the current user query and model response in the chat history
+    #     chat_history.append(user_query)
+    #     chat_history.append(response)
 
-        return jsonify({'response': response, 'chat_history': chat_history})
-    except Exception as e:
-        return jsonify({'error': str(e)})
+    #     return jsonify({'response': response, 'chat_history': chat_history})
+    # except Exception as e:
+    #     return jsonify({'error': str(e)})

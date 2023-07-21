@@ -1,11 +1,10 @@
+from flask import Flask, jsonify
+from flask_pymongo import PyMongo
+from flask_cors import CORS
+from dotenv import load_dotenv
+import os
 from routes.chat_route import chat_bp
 from routes.user_route import user_bp
-import os
-from dotenv import load_dotenv
-from flask_cors import CORS
-from flask_pymongo import PyMongo
-from flask import Flask, jsonify
-
 # Load environment variables from .env file
 load_dotenv()
 PORT = os.getenv("PORT")
