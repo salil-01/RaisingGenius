@@ -9,7 +9,7 @@ export interface signupForm {
 }
 export interface message {
   from: string;
-  content: string;
+  response: string;
 }
 export interface conversationData {
   name?: string;

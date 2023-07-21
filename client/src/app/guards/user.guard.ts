@@ -18,10 +18,10 @@ export class UserGuard {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean | UrlTree {
-    if (this.authService.isAdmin()) {
+    if (this.authService.isAdmin() || this.authService.isUser()) {
       return true;
     } else {
-      return this.router.parseUrl('/login');
+      return this.router.parseUrl('/signin');
     }
   }
 }
