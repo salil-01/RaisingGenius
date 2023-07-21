@@ -1,0 +1,25 @@
+/* Make the chat scrollable on overflow */
+::ng-deep .flex-grow {
+  overflow-y: auto;
+}
+
+/* Custom styles for the chat bubble */
+::ng-deep .rounded {
+  border-radius: 8px;
+}
+
+/* Adjust message alignment based on the sender */
+::ng-deep .self-end {
+  align-self: flex-end;
+}
+
+/* Style the input box */
+::ng-deep .border {
+  border-width: 1px;
+}
+
+/* Center the input box and add some padding */
+::ng-deep .p-4 {
+  display: flex;
+  align-items: center;
+}

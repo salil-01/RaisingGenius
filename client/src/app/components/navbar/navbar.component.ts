@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -7,5 +8,8 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
   navActive: boolean = false;
-  constructor() {}
+  constructor(private router: Router) {}
+  handleRegister() {
+    this.router.navigate(['/signup']);
+  }
 }
