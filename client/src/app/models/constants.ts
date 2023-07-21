@@ -7,3 +7,11 @@ export interface signupForm {
   email: string;
   password: string;
 }
+export interface message {
+  from: string;
+  content: string;
+}
+export interface conversationData {
+  name?: string;
+  chats: message[];
+}
