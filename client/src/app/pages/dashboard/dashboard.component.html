@@ -1,24 +1,35 @@
 <!-- parent.component.html -->
-<div class="flex justify-between w-11/12 m-auto gap-5">
+<div class="flex justify-between w-full m-auto gap-5">
   <!-- Sidebar -->
-  <div class="w-1/4 shadow-md border border-gray-300">
-    <div class="sidebar">
-      <h2 class="text-md md:text-lg lg:text-xl text-center mt-4 mb-4">
-        Saved Conversations
-      </h2>
-      <ul class="p-2 w-10/12 m-auto">
-        <li
-          class="text-left bg-pink-600 text-white p-2 rounded-md mb-2"
-          *ngFor="let item of savedConversations"
+  <div class="w-1/4 shadow-md border min-h-[100vh] border-gray-300">
+    <div class="sidebar"></div>
+    <h2 class="text-md md:text-lg lg:text-xl text-center mt-4 mb-4">
+      Saved Conversations
+    </h2>
+    <div class="w-11/12 md:w-1/2 m-auto">
+      <button
+        (click)="handleNew()"
+        class="inline-flex w-full items-center justify-center mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg border border-pink-600"
+      >
+        <span
+          class="transition-all py-2.5 w-full ease-in duration-75 bg-white rounded-md group-hover:bg-opacity-0"
         >
-          {{ item.name }}
-        </li>
-      </ul>
+          New Conversation
+        </span>
+      </button>
     </div>
+    <ul class="p-2 w-10/12 m-auto" *ngFor="let item of savedConversations">
+      <li
+        class="text-left bg-pink-600 w-full text-white p-2 rounded-md mb-2 hover:cursor-pointer"
+        (click)="handleClick(item)"
+      >
+        {{ item.name }}
+      </li>
+    </ul>
   </div>
 
   <!-- Chat Area -->
   <div class="w-3/4">
-    <app-chat></app-chat>
+    <app-chat [chatData]="selectedConversation"></app-chat>
   </div>
 </div>

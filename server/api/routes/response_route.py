@@ -3,11 +3,12 @@ from auth.auth_decorator import authenticate_and_authorize
 from models.response_model import Response
 from bson import json_util
 import json
+from flask_pymongo import ObjectId
 
 response_bp = Blueprint('/conversation', __name__)
 
 
-@response_bp.route('/conversation', methods=['POST'])
+@response_bp.route('/conversation/user', methods=['POST'])
 @authenticate_and_authorize()
 def post_conversation():
 
@@ -30,3 +31,16 @@ def get_conversation():
 
     json_conversation = json.dumps(conversation_list, default=json_util.default)
     return jsonify({'message':json_conversation}), 200
+
+@response_bp.route('/conversation/user', methods=['PUT'])
+@authenticate_and_authorize()
+def update_conversation():
+    user_id = g.user_id
+    data = request.json
+    data["_id"] = ObjectId(data["_id"])
+    # print(payload)
+    if(user_id!=data["user_id"]):
+        return jsonify({'message':"Unauthorized Access"}), 404
+
+    Response.update_by_chat_id(data["_id"], data)
+    return jsonify({'message':"Updated Successfully"}), 200

@@ -30,7 +30,7 @@ export class ChatService {
       `Bearer ${this.authService?.token}`
     );
     return this.http.post<any>(
-      `${environment.apiUrl}/conversation`,
+      `${environment.apiUrl}/conversation/user`,
       conversationData,
       { headers }
     );
@@ -43,5 +43,16 @@ export class ChatService {
     return this.http.get<any>(`${environment.apiUrl}/conversation/user`, {
       headers,
     });
+  }
+  updateConversation(conversationData: any): Observable<any> {
+    const headers = new HttpHeaders().set(
+      'Authorization',
+      `Bearer ${this.authService?.token}`
+    );
+    return this.http.put<any>(
+      `${environment.apiUrl}/conversation/user`,
+      conversationData,
+      { headers }
+    );
   }
 }

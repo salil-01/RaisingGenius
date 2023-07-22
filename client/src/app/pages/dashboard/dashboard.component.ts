@@ -8,6 +8,7 @@ import { ChatService } from 'src/app/services/chat.service';
 })
 export class DashboardComponent implements OnInit {
   savedConversations = <any>[];
+  selectedConversation: any;
   constructor(private chatService: ChatService) {}
   ngOnInit(): void {
     this.chatService.getConversation().subscribe({
@@ -23,7 +24,13 @@ export class DashboardComponent implements OnInit {
       },
     });
   }
-  handleConversation(conversation: any): void {
-    console.log(conversation);
+  handleClick(conversation: any): void {
+    // console.log(conversation);
+    this.selectedConversation = conversation;
+  }
+  handleNew() {
+    this.selectedConversation = {
+      chats: [{ from: 'openai', response: 'Hello' }],
+    };
   }
 }

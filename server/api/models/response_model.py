@@ -19,3 +19,9 @@ class Response:
     def find_by_user_id(cls, user_id):
         from app import mongo
         return mongo.db[cls.collection].find({'user_id':user_id})
+
+    @classmethod
+    def update_by_chat_id(cls, chat_id,updated_data):
+        from app import mongo
+        print(chat_id)
+        return mongo.db[cls.collection].replace_one({'_id':ObjectId(chat_id)},updated_data)
