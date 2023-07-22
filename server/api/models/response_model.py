@@ -16,6 +16,6 @@ class Response:
         return mongo.db[cls.collection].insert_one(response_data)
 
     @classmethod
-    def find_by_id(cls, user_id):
+    def find_by_user_id(cls, user_id):
         from app import mongo
-        return mongo.db[cls.collection].find_one({'_id': ObjectId(user_id)})
+        return mongo.db[cls.collection].find({'user_id':user_id})

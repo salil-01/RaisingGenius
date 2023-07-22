@@ -35,4 +35,13 @@ export class ChatService {
       { headers }
     );
   }
+  getConversation(): Observable<any> {
+    const headers = new HttpHeaders().set(
+      'Authorization',
+      `Bearer ${this.authService?.token}`
+    );
+    return this.http.get<any>(`${environment.apiUrl}/conversation/user`, {
+      headers,
+    });
+  }
 }

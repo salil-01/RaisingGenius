@@ -10,8 +10,9 @@ import { SigninComponent } from './pages/signin/signin.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { ChatComponent } from './pages/chat/chat.component';
+import { ChatComponent } from './components/chat/chat.component';
 import { FormsModule } from '@angular/forms';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { FormsModule } from '@angular/forms';
     NavbarComponent,
     FooterComponent,
     ChatComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
