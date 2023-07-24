@@ -35,13 +35,10 @@ app.config['PORT'] = PORT
 # mongodb connection
 mongo = PyMongo(app)
 
-@app.teardown_appcontext
-def close_mongo_connection(exception=None):
-    mongo.cx.close()
 # Blueprints
-# app.register_blueprint(chat_bp)
+app.register_blueprint(chat_bp)
 app.register_blueprint(user_bp)
-# app.register_blueprint(response_bp)
+app.register_blueprint(response_bp)
 
 @app.route("/", methods=["GET"])
 def home_page():
