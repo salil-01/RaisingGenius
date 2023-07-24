@@ -7,7 +7,7 @@ class Response:
 
     @classmethod
     def create(cls,user_id, name, chats):
-        from app import mongo
+        from api.app import mongo
         response_data = {
             'user_id': user_id,
             'name': name,
@@ -17,7 +17,7 @@ class Response:
 
     @classmethod
     def find_by_user_id(cls, user_id):
-        from app import mongo
+        from api.app import mongo
         return mongo.db[cls.collection].find({'user_id':user_id})
 
     @classmethod

@@ -7,7 +7,7 @@ class User:
 
     @classmethod
     def create(cls, username, email, password, role):
-        from app import mongo
+        from api.app import mongo
         user_data = {
             'username': username,
             'email': email,
@@ -18,10 +18,10 @@ class User:
 
     @classmethod
     def find_by_email(cls, email):
-        from app import mongo
+        from api.app import mongo
         return mongo.db[cls.collection].find_one({'email': email})
 
     @classmethod
     def find_by_id(cls, user_id):
-        from app import mongo
+        from api.app import mongo
         return mongo.db[cls.collection].find_one({'_id': ObjectId(user_id)})
