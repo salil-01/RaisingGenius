@@ -3,9 +3,9 @@ from flask_pymongo import PyMongo
 from flask_cors import CORS
 from dotenv import load_dotenv
 import os
-from routes.chat_route import chat_bp
-from routes.user_route import user_bp
-from routes.response_route import response_bp
+# from routes.chat_route import chat_bp
+# from routes.user_route import user_bp
+# from routes.response_route import response_bp
 # Load environment variables from .env file
 load_dotenv()
 PORT = os.getenv("PORT")
@@ -30,9 +30,9 @@ mongo = PyMongo(app)
 def close_mongo_connection(exception=None):
     mongo.cx.close()
 # Blueprints
-app.register_blueprint(chat_bp)
-app.register_blueprint(user_bp)
-app.register_blueprint(response_bp)
+# app.register_blueprint(chat_bp)
+# app.register_blueprint(user_bp)
+# app.register_blueprint(response_bp)
 
 
 @app.route("/", methods=["GET"])
