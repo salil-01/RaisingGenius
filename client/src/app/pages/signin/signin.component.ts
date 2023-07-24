@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./signin.component.css'],
 })
 export class SigninComponent {
+  signinImg: string = 'assets/signin.jpg';
   formData: loginForm = {
     email: '',
     password: '',

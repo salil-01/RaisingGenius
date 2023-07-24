@@ -5,9 +5,6 @@ import json
 import openai
 import difflib
 
-with open('data.json', 'r') as json_file:
-    data = json.load(json_file)
-
 def get_response(user_query):
     try:
         apiKey = current_app.config['OPENAI_API_KEY']

@@ -10,6 +10,8 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./signup.component.css'],
 })
 export class SignupComponent {
+  signUpImg: string = 'assets/signup.jpg';
+
   formData: signupForm = {
     username: '',
     email: '',
