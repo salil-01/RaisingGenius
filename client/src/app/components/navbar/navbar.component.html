@@ -13,11 +13,10 @@
       <button
         *ngIf="authService.auth === true"
         type="button"
+        (click)="handleShowMenu()"
         class="flex mr-3 text-sm rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
         id="user-menu-button"
         aria-expanded="false"
-        data-dropdown-toggle="user-dropdown"
-        data-dropdown-placement="bottom"
       >
         <span class="sr-only">Open user menu</span>
         <img
@@ -27,40 +26,7 @@
         />
       </button>
       <!-- Dropdown menu -->
-      <div
-        class="z-50 my-4 text-base list-none hidden bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
-        id="user-dropdown"
-      >
-        <div class="px-4 py-3">
-          <span class="block text-sm text-gray-900 dark:text-white">{{
-            authService.username
-          }}</span>
-        </div>
-        <ul class="py-2" aria-labelledby="user-menu-button">
-          <li>
-            <a
-              routerLink="/dashboard"
-              class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-              >Dashboard</a
-            >
-          </li>
-          <li>
-            <a
-              routerLink="#"
-              class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-              >Settings</a
-            >
-          </li>
-          <li>
-            <a
-              routerLink="/"
-              (click)="handleLogout()"
-              class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-              >Sign out</a
-            >
-          </li>
-        </ul>
-      </div>
+
       <button
         *ngIf="authService.auth === false"
         type="button"
@@ -139,5 +105,39 @@
         </li>
       </ul>
     </div>
+  </div>
+  <div
+    #profilemenu
+    class="z-50 my-4 w-2/12 border border-gray-300 text-base hidden md:w-40 left-[80%] absolute list-none divide-y text-white divide-gray-100 rounded-md shadow bg-gray-200"
+  >
+    <div class="px-4 py-3">
+      <span class="block text-base text-gray-900 dark:text-white">{{
+        authService.username
+      }}</span>
+    </div>
+    <ul class="py-2" aria-labelledby="user-menu-button">
+      <li>
+        <a
+          routerLink="/dashboard"
+          class="block px-4 py-2 text-base text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+          >Dashboard</a
+        >
+      </li>
+      <li>
+        <a
+          routerLink="#"
+          class="block px-4 py-2 text-base text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+          >Settings</a
+        >
+      </li>
+      <li>
+        <a
+          routerLink="/"
+          (click)="handleLogout()"
+          class="block px-4 py-2 text-base text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+          >Sign out</a
+        >
+      </li>
+    </ul>
   </div>
 </nav>

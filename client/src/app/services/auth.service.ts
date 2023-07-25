@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { environment } from '../environments/environment';
 import { loginForm, signupForm } from '../models/constants';
@@ -16,7 +17,7 @@ export class AuthService {
   role = '';
   token = '';
   username = '';
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private toast: ToastrService) {
     this.auth = getLocalStorageItem('auth') || false;
     this.role = getLocalStorageItem('role') || '';
     this.token = getLocalStorageItem('token') || '';
@@ -69,8 +70,8 @@ export class AuthService {
     localStorage.removeItem('username');
     localStorage.removeItem('role');
     localStorage.removeItem('token');
-    // this.toast.success('<p>Logout Successfull</p>', '', {
-    //   enableHtml: true,
-    // });
+    this.toast.success('<p>Logout Successfull</p>', '', {
+      enableHtml: true,
+    });
   }
 }
