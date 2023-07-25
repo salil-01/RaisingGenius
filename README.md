@@ -1,6 +1,6 @@
 # Rising Genius
 
-Welcome to Rising Genius, an innovative chat app that provides personalized advice to parents based on their queries. This app leverages the power of OpenAI's language model to offer intelligent responses to parental concerns and inquiries.
+Parenting is a rewarding but challenging journey, and many parents seek guidance to navigate through various parenting situations. Rising Genius aims to address this need by offering a user-friendly platform where parents can ask questions and receive thoughtful advice from an AI-powered chatbot. This app leverages the power of OpenAI's language model to offer intelligent responses to parental concerns and inquiries.
 
 ## Features
 
