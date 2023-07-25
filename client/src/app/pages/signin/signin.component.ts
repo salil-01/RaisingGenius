@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class SigninComponent {
   signinImg: string = 'assets/signin.jpg';
+  loading: boolean = false;
   formData: loginForm = {
     email: '',
     password: '',
@@ -18,7 +19,8 @@ export class SigninComponent {
   constructor(private authService: AuthService, private toast: ToastrService) {}
 
   handleSubmit(): void {
-    console.log(this.formData);
+    // console.log(this.formData);
+
     if (this.formData.email === '' || this.formData.password === '') {
       this.toast.info('<p>Please fill all the fields</p>', '', {
         enableHtml: true,
@@ -26,14 +28,16 @@ export class SigninComponent {
       });
       return;
     }
+    this.loading = true;
     this.authService.login(this.formData).subscribe({
       next: (res) => {
-        // console.log(res);
+        console.log(res);
         this.authService.updateLoginCredential(
           res.username,
           res.token,
           res.role
         );
+        this.loading = false;
         this.toast.success('<p>Login Successfull</p>', '', {
           enableHtml: true,
           closeButton: true,
@@ -43,6 +47,7 @@ export class SigninComponent {
       },
       error: (error) => {
         console.log(error);
+        this.loading = false;
         this.toast.error('<p>Server Error</p>', '', {
           enableHtml: true,
           closeButton: true,

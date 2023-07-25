@@ -11,7 +11,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class SignupComponent {
   signUpImg: string = 'assets/signup.jpg';
-
+  loading: boolean = false;
   formData: signupForm = {
     username: '',
     email: '',
@@ -37,9 +37,12 @@ export class SignupComponent {
       });
       return;
     }
+    this.loading = true;
     this.authService.registerUser(this.formData).subscribe({
       next: (res) => {
         // console.log(res);
+        this.loading = false;
+
         this.toast.success('<p>Signup Successfull</p>', '', {
           enableHtml: true,
           closeButton: true,
@@ -48,6 +51,8 @@ export class SignupComponent {
       },
       error: (error) => {
         console.log(error);
+        this.loading = false;
+
         this.toast.error('<p>Server Error</p>', '', {
           enableHtml: true,
           closeButton: true,
