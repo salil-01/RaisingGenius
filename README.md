@@ -120,17 +120,19 @@ The following are the API endpoints available in Rising Genius:
 - `PUT /api/conversation/user`: update existing user's conversation.
 
 
-
 ## Screenshots
+### Homepage
+![home](https://github.com/salil-01/RaisingGenius/assets/115460357/f3f631ba-53d7-4e7b-b828-c49efcdf8087)
 
-![Screenshot 1](./path/to/screenshot1.png)
-*Description of the first page screenshot.*
+### Sign Up
+![register](https://github.com/salil-01/RaisingGenius/assets/115460357/9f88ed27-6678-41fa-87e7-fca3ddcc342b)
 
-![Screenshot 2](./path/to/screenshot2.png)
-*Description of the second page screenshot.*
+### Sign In
+![login](https://github.com/salil-01/RaisingGenius/assets/115460357/28aeafb0-853e-4753-99c6-d9daa75fa52b)
 
-![Screenshot 3](./path/to/screenshot3.png)
-*Description of the third page screenshot.*
+### Dashboard
+![chat](https://github.com/salil-01/RaisingGenius/assets/115460357/4cb59499-ee03-4e9e-82ab-685ca3cfa403)
+
 
 Feel free to explore Rising Genius, ask questions, and receive intelligent advice tailored to your parenting needs. We hope this app becomes your go-to companion on your parenting journey!
 
