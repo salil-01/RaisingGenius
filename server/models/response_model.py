@@ -22,6 +22,6 @@ class Response:
 
     @classmethod
     def update_by_chat_id(cls, chat_id,updated_data):
-        from app import mongo
+        from api.app import mongo
         print(chat_id)
         return mongo.db[cls.collection].replace_one({'_id':ObjectId(chat_id)},updated_data)
